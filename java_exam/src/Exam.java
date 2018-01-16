@@ -17,9 +17,24 @@ public class Exam {
 
         System.out.println("===========================");
 
+         long num11 = 10000000000l;
+         float num22 = 13.3f;
 
+         System.out.println("long 사용: "+ num11);
+         System.out.println("float 사용:" + num22);
+        System.out.println("===========================");
 
+         int n1=7;
+         int n2 =3;
+         int resert = n1+n2;
+         System.out.println("n1:"+ n1 +"   n2:"+n2);
+         System.out.println("덧셈 연산: "+ resert);
 
+         resert = n1-n2;
+         System.out.println("뺄셈 연산: "+ resert);
+         System.out.println("곱하기 연산: "+ n1*n2);
+         System.out.println("나누기 연산: "+ n1/n2);
+         System.out.println("나머지 연산: " + n1%n2);
     }
 }
 
