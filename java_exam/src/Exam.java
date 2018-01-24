@@ -74,7 +74,27 @@ public class Exam {
             a=a+1;
         }
  */
-        //반복제어문 예제3) 한개의 자연수를 입력받아 그 수의 배수를 차례로 10개 출력하라
+      //반복제어문 예제3) 한개의 자연수를 입력받아 그 수의 배수를 차례로 10개 출력하라
+          //입력을 받기 위해 준비
+            int a;
+          //사용자로부터 입력을 받아 변수저장
+            Scanner kb = new Scanner(System.in);
+              a = kb.nextInt();
+
+        for(int num=1; num<=10; num++){
+            System.out.println(a*num+"  ");
+        }
+
+
+     /*
+            int num=0;
+            //10번 반복하여 출력
+            while(num<10) {
+                num++;
+                System.out.println(num*a + "  ");
+            }
+
+*/
 
 
     }
