@@ -3,15 +3,16 @@ import java.util.Scanner;
 
 public class Exam {
     public static void main(String[] args) {
-String str ="문자열예제";
-int strLen = str.length();
-System.out.println(strLen);
+        //배열
+        String[] strArray = new String[3];
+        strArray[0] = new String("Java");
+        strArray[1] = new String("Flex");
+        strArray[2] = new String("Ruby");
 
-if (strLen < 6 && strLen >=20){
-    System.out.println("올바른 비번");
-    }else{
-    System.out.println("재입력 하세요");
-    }
+        //for(초기값; 비교; 증가)
+        for(int i = 0; i < strArray.length; i++){
+            System.out.println(strArray[i]);
+        }
     }
 }
 
