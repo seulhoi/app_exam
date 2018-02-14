@@ -1,25 +1,22 @@
 public class Person {
-    private int perID;
-    private int milID;
+    private int carID;
+    private String address;
 
-    //군 필자를위한 생성자
-    public Person(int pID, int mID){
-        perID = pID;
-        milID = mID;
-
-
+    public Person (String aAddress){
+        address = aAddress;
+        carID = -1;
     }
-    //군 미필자를 위한 생성자
-    public Person(int pID){
-        perID = pID;
-        milID = -1;
+    public Person(int cID){
+        address = "";
+        carID= cID;
     }
     public void showInfo(){
-        System.out.println("주민번호: "+perID);
-        if(milID == -1){
-            System.out.println("군번이 없음");
+        if(carID==-1){
+            System.out.println("차량이 없음");
+            System.out.println("주소: "+address);
         }else{
-            System.out.println("군번: "+milID);
+            System.out.println("차랑번호: "+carID);
+            System.out.println("주소가 없음");
         }
     }
 }
