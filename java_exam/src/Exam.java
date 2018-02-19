@@ -1,21 +1,27 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Exam {
     public static void main(String[] args) {
-        //5개의 정수를 입력받은 후
-        // 첫번째와 세번째와 다섯번째 정수를 더한 값을 출력하는 프로그램
         int[] arr = new int[5];
-        Scanner kb = new Scanner (System.in);
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
-        arr[0] = kb.nextInt();
-        arr[1] = kb.nextInt();
-        arr[2] = kb.nextInt();
-        arr[3] = kb.nextInt();
-        arr[4] = kb.nextInt();
+        System.out.println("데이터저장");
+        arrayList.add(1);
+        arrayList.add(2);
+        arrayList.add(3);
 
-        int result = arr[0] + arr[2] + arr[4];
-        System.out.println(result);
+        System.out.println("데이터 읽기");
+        System.out.println(arrayList.get(0));
+        System.out.println(arrayList.get(1));
+        System.out.println(arrayList.get(2));
+
+        System.out.println("데이터 삭제");
+        arrayList.remove(0);
+        for(int i =0; i< arrayList.size(); i++){
+            System.out.println(arrayList.get(i));
+        }
     }
 }
 
