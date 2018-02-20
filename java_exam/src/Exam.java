@@ -25,6 +25,11 @@ public class Exam {
             }
         };
 
+        frame.addWindowListener(listener);
+
+        MouseEventHandler meHandler = new MouseEventHandler();
+
+
         //버튼 객체를 생성
         JButton btn1 = new JButton("Btn");
         JButton btn2 = new JButton("Btn");
