@@ -8,29 +8,47 @@ import java.util.Scanner;
 
 public class Exam {
     public static void main(String[] args) {
-      //frame 객체 생성
-       JFrame frame = new JFrame("title");
-       //frame 크기 설정(화면의 x좌표,y좌표,창 너비,창 높이)
-       frame.setBounds(120,120,250,270);
-       //프레임안에 배치될 버튼들의 배치방식 설정 그리드레이아웃 (행,열,세로선 간격,가로선 간격)
+        // frame 객체 생성
+        JFrame frame = new JFrame("title");
+        // frame 크기 설정
+        frame.setBounds(120,120,250,270);
+        // 프레임 안에 배치될 버튼들의 배치 방식 설정
         frame.setLayout(new FlowLayout());
 
-        //객체를 생성
-        JTextArea textArea = new JTextArea(10,20);
-        JButton btn = new JButton("Clear");
+        JCheckBox cb1 = new JCheckBox("수박");
+        JCheckBox cb2 = new JCheckBox("딸기");
+        JCheckBox cb3 = new JCheckBox("사과");
 
-        BttonTextHandler btHandler = new BttonTextHandler(textArea);
-        btn.addActionListener(btHandler);
+        CheckBoxHandler cbHandler1 = new CheckBoxHandler(cb1);
+        CheckBoxHandler cbHandler2 = new CheckBoxHandler(cb2);
+        CheckBoxHandler cbHandler3 = new CheckBoxHandler(cb3);
+        cb1.addItemListener(cbHandler1);
+        cb2.addItemListener(cbHandler2);
+        cb3.addItemListener(cbHandler3);
+        frame.add(cb1);
+        frame.add(cb2);
+        frame.add(cb3);
 
-        //프레임에 넣어줌
-        frame.add(textArea);
-        frame.add(btn);
+        JRadioButton rb1 = new JRadioButton("미국");
+        JRadioButton rb2 = new JRadioButton("한국");
+        JRadioButton rb3 = new JRadioButton("중국");
 
-        //프레임을 화면에 보여줌
+        RadioHandler radioHandler1 = new RadioHandler(rb1);
+        RadioHandler radioHandler2 = new RadioHandler(rb2);
+        RadioHandler radioHandler3 = new RadioHandler(rb3);
+        rb1.addItemListener(radioHandler1);
+        rb2.addItemListener(radioHandler2);
+        rb3.addItemListener(radioHandler3);
+
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(rb1);
+        bg.add(rb2);
+        bg.add(rb3);
+
+        frame.add(rb1);
+        frame.add(rb2);
+        frame.add(rb3);
+        // 프레임을 화면에 보여줌
         frame.setVisible(true);
-
     }
 }
-
-
-
