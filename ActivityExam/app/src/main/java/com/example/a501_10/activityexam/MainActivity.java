@@ -37,12 +37,18 @@ public class MainActivity extends AppCompatActivity {
         //FirstActivity: first액티비티를 불러달란 의미(목적지)
     @Override
     public void onClick(View view) {
-        Intent intent = null;
+        Intent intent;
      switch (view.getId()){
          case R.id.btn_first:
-             intent = new Intent(getApplicationContext(),
-                     FirstActivity.class);
+             //1.데이터를 송신할 액티비티에서 전달할 인텐트를 만듬
+             intent = new Intent(MainActivity.this,FirstActivity.class);
+
+             //2)전달할 인텐트에 데이터를 추가하고, 화면전환하기 MainToFristButton:고유값(키)
+             //startActivityForResult()함수: 화면전환하기 데이터주고받음(intent, 1:아이디)
+             intent.putExtra("MainToFirst","메인에서 퍼스트로 전달하는 데이터");
+             startActivityForResult(intent,1);
              break;
+
          case R.id.btn_second:
              intent = new Intent(getApplicationContext(),
                      SecondActivity.class);
@@ -50,11 +56,25 @@ public class MainActivity extends AppCompatActivity {
          case R.id.btn_movie:
              intent = new Intent(getApplicationContext(),
                      movieActivity.class);
-     }
+      }
         //startActivity: 실제 화면을 전환시켜줄 명령어
-        startActivity(intent);
+      //  startActivity(intent);
 
     }
 }
+
+//6)인텐트에 포함된 데이터를 읽어오는 함수
+    protected  void onActivityResult(int requestCode, int resultCode, Intent data){
+        switch(requestCode){
+            case 1:
+                if (resultCode == RESULT_OK){
+                    Toast.makeText(MainActivity.this,
+                    data.getStringExtra("FirstToMain"), Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case 2:
+
+        }
+    }
 
 }

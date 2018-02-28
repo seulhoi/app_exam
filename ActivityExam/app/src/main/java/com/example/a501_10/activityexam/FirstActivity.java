@@ -1,5 +1,6 @@
 package com.example.a501_10.activityexam;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,6 +26,21 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+
+        //3)화면전환후 이전액티비티에서 보낸 인텐트를 수신
+        Intent intent = getIntent();
+
+        //4)인텐트 안에서 데이터를 읽음
+        String temp = intent.getStringExtra("MainToFirst");
+        if(temp != null){
+            Toast.makeText(FirstActivity.this, temp,
+                    Toast.LENGTH_LONG).show();
+        }
+
+
+
+
+
         //1. 레이아웃에서 video ID설정하기
         //2.videoview 객체 만들기
         videoView_first = (VideoView)findViewById(R.id.videoView_first);
@@ -46,14 +62,26 @@ public class FirstActivity extends AppCompatActivity {
         btn_first_to_main = (Button)findViewById(R.id.btn_first_to_main);
         //*4.리스너 객체 만들기
         FirstToMainListener firstToMainListener = new FirstToMainListener();
+
         //*5.리스너를 컴포넌트의 객체에 등록
-        btn_first_to_main.setOnClickListener(firstToMainListener);
+    btn_first_to_main.setOnClickListener(new View.OnClickListener(){
+            @Override
+        public void onClick(View view){
+
+          //5.))수신한 데이터를 처리후 이전액티비티에  보내기 위해 인텐트를 생성하고 데이터를 첨부
+            Intent intent = new Intent();
+            intent.putExtra("FirstToMain","퍼스트에서 메인에게 돌아가는 데이터");
+            setResult(RESULT_OK,intent);
+        }
+
+        });
 
         ratingbar_first = (RatingBar)findViewById(R.id.ratingbar_first);
         RatingListener ratingListener = new RatingListener();
         ratingbar_first.setOnRatingBarChangeListener(ratingListener);
 
-        }
+
+    }
     //*3.리스너만들기
     class FirstToMainListener implements View.OnClickListener{
         @Override
