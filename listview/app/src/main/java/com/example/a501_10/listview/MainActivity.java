@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
     };
     */
 
-    String[] file_explan;
-    String[] file_great;
+    //String[] file_explan;
+    //String[] file_great;
+    String[] movie_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +29,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //1.컴포넌트 배치후 ID 부여
         //2.데이터 생성하기
-        file_explan = getResources().getStringArray(R.array.great_man_explain);
-        file_great = getResources().getStringArray(R.array.great_man);
+        //file_explan = getResources().getStringArray(R.array.great_man_explain);
+        //file_great = getResources().getStringArray(R.array.great_man);
+        movie_title = getResources().getStringArray(R.array.movie_title);
 
         //3.어답터 만들기
         ArrayAdapter adapter = ArrayAdapter.createFromResource(
                 MainActivity.this,
-                R.array.great_man,
+                R.array.movie_title,
                 android.R.layout.simple_list_item_1);
+
 
      /*
         //1.컴포넌트 배치후 ID 부여
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         //8.리스트뷰에 리스너 등록하기
         listView.setOnItemClickListener(myItemListener);
 
-        // 6,7,8을 통합한 코드 ****
+        /*// 6,7,8을 통합한 코드 ****
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
         });
-
+*/
 
     }
      //6.리스너 만들기
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
          @Override
          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-             Toast.makeText(MainActivity.this, file_explan[i],
+             Toast.makeText(MainActivity.this, movie_title[i],
                      Toast.LENGTH_LONG).show();
          }
      }

@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
              //2)전달할 인텐트에 데이터를 추가하고, 화면전환하기 MainToFristButton:고유값(키)
              //startActivityForResult()함수: 화면전환하기 데이터주고받음(intent, 1:아이디)
              intent.putExtra("MainToFirst","메인에서 퍼스트로 전달하는 데이터");
+             intent.putExtra("MainToFirst_number",10000);
              startActivityForResult(intent,1);
              break;
 

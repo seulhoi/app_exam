@@ -30,10 +30,14 @@ public class FirstActivity extends AppCompatActivity {
         //3)화면전환후 이전액티비티에서 보낸 인텐트를 수신
         Intent intent = getIntent();
 
+
         //4)인텐트 안에서 데이터를 읽음
         String temp = intent.getStringExtra("MainToFirst");
+        int temp_number = intent.getIntExtra("MainToFirst_number",-1);
+
         if(temp != null){
-            Toast.makeText(FirstActivity.this, temp,
+            Toast.makeText(FirstActivity.this,
+                    Integer.toString(temp_number),
                     Toast.LENGTH_LONG).show();
         }
 

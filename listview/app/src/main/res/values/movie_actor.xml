@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+    <string-array name="movie_actor">
+        <item>채드윅 보스만(티찰라/블랙 팬서)</item>
+        <item>심은경(송화옹주),이승기(서도윤)</item>
+        <item>김태리(혜원),류준열(재하)</item>
+        <item>누미 라파스(카렌 셋맨)</item>
+    </string-array>
 </resources>
