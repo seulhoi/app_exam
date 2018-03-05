@@ -1,5 +1,6 @@
 package com.example.a501_10.listview;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -74,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
     }
      //6.리스너 만들기
      class MyItemListener implements AdapterView.OnItemClickListener{
-
          @Override
          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-             Toast.makeText(MainActivity.this, movie_title[i],
-                     Toast.LENGTH_LONG).show();
+             Intent intent = new Intent(MainActivity.this,InfoActivity.class);
+             intent.putExtra("movie_index",i);
+             startActivityForResult(intent,1);
          }
      }
 }
