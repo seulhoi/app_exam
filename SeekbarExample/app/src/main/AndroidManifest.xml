@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.a501_10.listview">
+    package="com.example.a501_10.seekbarexample">
 
     <application
         android:allowBackup="true"
@@ -16,8 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InfoActivity"></activity>
-        <activity android:name=".BookActivity"></activity>
     </application>
 
 </manifest>

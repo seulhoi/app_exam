@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         dateSetListener = new DatesetListener();
         timeSetListener = new TimeSetListener();
         myButtonListener = new MyButtonListener();
+
+        //5.컴포넌트연결
         btn_date.setOnClickListener(myButtonListener);
         btn_time.setOnClickListener(myButtonListener);
     }
