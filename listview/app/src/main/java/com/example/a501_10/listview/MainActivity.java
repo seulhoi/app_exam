@@ -3,6 +3,8 @@ package com.example.a501_10.listview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -73,7 +75,27 @@ public class MainActivity extends AppCompatActivity {
 */
 
     }
-     //6.리스너 만들기
+
+    @Override
+    //amenu:매개변수
+    public boolean onCreateOptionsMenu(Menu amenu) {
+       getMenuInflater().inflate(R.menu.menu, amenu);
+       return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.item_go_to_join:
+                Intent intent = new Intent(
+                        MainActivity.this, JoinActvity.class);
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //6.리스너 만들기
      class MyItemListener implements AdapterView.OnItemClickListener{
          @Override
          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

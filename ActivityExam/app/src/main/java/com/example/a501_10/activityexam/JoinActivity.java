@@ -1,5 +1,7 @@
 package com.example.a501_10.activityexam;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +12,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.FileOutputStream;
 
 /**
  * Created by 501-10 on 2018-03-12.
@@ -18,11 +23,13 @@ import android.widget.TextView;
 public class JoinActivity extends AppCompatActivity {
 
     TextView textView_pwinfo;
-    EditText editText_id,editText_pw,editText_name,editText_pw2,editText_year,editText_name,editText_phone;
+    EditText editText_id,editText_pw,editText_pw2,editText_year,editText_name,editText_phone;
     CheckBox checkBox_m,checkBox_w;
     Spinner spinner_mon,spinner_day;
     Button button_join;
     ArrayAdapter monthAdapter,dayAdapter;
+
+    Boolean isIdChecked;
 
 
     @Override
@@ -38,15 +45,57 @@ public class JoinActivity extends AppCompatActivity {
 
         //4.
          IdCheckListener idCheckListener = new IdCheckListener();
-         PwCheckListener pwCheckListener = new PwCheckListener();
 
         //5.
         editText_id.setOnFocusChangeListener(idCheckListener);
-        editText_pw.OnFocusChangeListener(pwCheckListener);
-
+        editText_pw2.OnFocusChangeListener(new PwCheckListener());
+        button_join.setOnClickListener(new JoinBtnListener());
     }
 
     //3.클래스
+    class JoinBtnListener implements  View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            if(isIdChecked){
+                String temp_id = editText_id.getText().toString();
+                //output stream을 생성
+                FileOutputStream fos = null;
+                try{
+                    fos = openFileOutput("id.bin", Context.MODE_PRIVATE);
+                    //비어있는 파일에 아이디를 저장
+                    fos.write(temp_id.getBytes());
+                    //output stream 제거
+                    fos.close();
+                }catch (Exception e) {}
+            }else{
+                Toast.makeText(JoinActivity.this,"정상적인 아이디를 입력하세요",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+
+            if(editText_name.getText().toString().equals("") &&
+                    editText_phone.getText().toString().equals("")){
+                SharedPreferences pref = getSharedPreferences("user_info", 0);
+                SharedPreferences.Editor editor = pref.edit();
+
+                editor.putString("user_name",editText_name.getText().toString());
+                editor.putString("user_phone",editText_phone.getText().toString());
+
+                editor.commit();
+
+                SharedPreferences pref_read = getSharedPreferences("user_info",0);
+                String user_name = pref_read.getString("user_name","error");
+                String user_phone = pref_read.getString("user_phone","error");
+
+            }else{
+                Toast.makeText(JoinActivity.this, "이름, 전화번호를 확인하세요",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+
     class IdCheckListener implements View.OnFocusChangeListener{
 
         @Override
@@ -105,7 +154,7 @@ public class JoinActivity extends AppCompatActivity {
 
     }
     private void setAdapters(){
-        monthAdapter = ArrayAdapter.createFromResource(getApplicationContext());
+        monthAdapter = ArrayAdapter.createFromResource();
 
     }
 }

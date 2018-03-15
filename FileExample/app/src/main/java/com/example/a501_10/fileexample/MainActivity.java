@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -73,6 +74,15 @@ public class MainActivity extends AppCompatActivity {
                     }catch (Exception e){
                         Log.d("file stream","input stream error");
                     }break;
+                case R.id.btn_del:
+                    try{
+                        deleteFile("text.txt");
+                    }catch (Exception e){
+                        Log.d("file stream", e.getStackTrace().toString());
+                    }
+
+
+                    break;
             }
         }
     }
