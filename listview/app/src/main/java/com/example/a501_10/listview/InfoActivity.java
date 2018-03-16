@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,12 +21,14 @@ public class InfoActivity extends AppCompatActivity {
 
 
     String[] movie_title, movie_actor, movie_director, movie_type;
-
+    TypedArray movie_img, photo_little, photo_black,photo_mon,photo_match;
     //1.변수만들기
     TypedArray movie_img;
     TextView textView_title, textView_dir_act, textView_type;
     ImageView imgView_poster;
     Button btn_go_book;
+
+    LinearLayout linearLayout_info;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +51,12 @@ public class InfoActivity extends AppCompatActivity {
         movie_director = getResources().getStringArray(R.array.movie_director);
         movie_type = getResources().getStringArray(R.array.movie_type);
         movie_img = getResources().obtainTypedArray(R.array.movie_img);
+
+        photo_black = getResources().obtainTypedArray(R.array.movie_black_img);
+        photo_little = getResources().obtainTypedArray(R.array.movie_little_img);
+        photo_mon = getResources().obtainTypedArray(R.array.movie_mon_img);
+        photo_match = getResources().obtainTypedArray(R.array.movie_match_img);
+
 
         if(movie_index != -1){
             Toast.makeText(InfoActivity.this,

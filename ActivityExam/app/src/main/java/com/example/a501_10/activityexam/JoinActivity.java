@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,7 +24,7 @@ import java.io.FileOutputStream;
 public class JoinActivity extends AppCompatActivity {
 
     TextView textView_pwinfo;
-    EditText editText_id,editText_pw,editText_pw2,editText_year,editText_name,editText_phone;
+    EditText editText_id,editText_pw,editText_repw,editText_year,editText_name,editText_phone;
     CheckBox checkBox_m,checkBox_w;
     Spinner spinner_mon,spinner_day;
     Button button_join;
@@ -45,10 +46,12 @@ public class JoinActivity extends AppCompatActivity {
 
         //4.
          IdCheckListener idCheckListener = new IdCheckListener();
+        PwCheckListener pwCheckListener = new PwCheckListener();
 
         //5.
         editText_id.setOnFocusChangeListener(idCheckListener);
-        editText_pw2.OnFocusChangeListener(new PwCheckListener());
+        editText_repw.setOnFocusChangeListener(pwCheckListener);
+
         button_join.setOnClickListener(new JoinBtnListener());
     }
 
@@ -128,7 +131,7 @@ public class JoinActivity extends AppCompatActivity {
         @Override
         public void onFocusChange(View view, boolean b) {
             String user_pw = editText_pw.getText().toString();
-            String user_re_pw = editText_pw2.getText().toString();
+            String user_re_pw = editText_repw.getText().toString();
 
             if(user_pw.equals(user_re_pw)){
                 textView_pwinfo.setText("정상적인 비밀번호입니다.");
@@ -143,7 +146,7 @@ public class JoinActivity extends AppCompatActivity {
         editText_id = (EditText)findViewById(R.id.editText_id);
         editText_pw = (EditText)findViewById(R.id.editText_pw);
         editText_name = (EditText)findViewById(R.id.editText_name);
-        editText_pw2 = (EditText)findViewById(R.id.editText_pw2);
+        editText_repw = (EditText)findViewById(R.id.editText_repw);
         editText_year = (EditText)findViewById(R.id.editText_year);
         editText_phone = (EditText)findViewById(R.id.editText_phone);
         checkBox_m = (CheckBox)findViewById(R.id.checkBox_m);
@@ -154,7 +157,39 @@ public class JoinActivity extends AppCompatActivity {
 
     }
     private void setAdapters(){
-        monthAdapter = ArrayAdapter.createFromResource();
+        monthAdapter = ArrayAdapter.createFromResource(getApplicationContext(),
+                R.array.month_info,
+                android.R.layout.simple_spinner_item);
+        monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_mon.setAdapter(monthAdapter);
+        spinner_mon.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        dayAdapter = ArrayAdapter.createFromResource(getApplicationContext(),
+                R.array.day_info,
+                android.R.layout.simple_spinner_item);
+        dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_day.setAdapter(dayAdapter);
+        spinner_day.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
     }
 }
