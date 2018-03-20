@@ -23,7 +23,6 @@ public class InfoActivity extends AppCompatActivity {
     String[] movie_title, movie_actor, movie_director, movie_type;
     TypedArray movie_img, photo_little, photo_black,photo_mon,photo_match;
     //1.변수만들기
-    TypedArray movie_img;
     TextView textView_title, textView_dir_act, textView_type;
     ImageView imgView_poster;
     Button btn_go_book;

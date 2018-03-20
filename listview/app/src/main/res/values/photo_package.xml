@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="photo_package">
+        <item>블랙팬서1/2/3</item>
+        <item>궁합1/2/3</item>
+        <item>리틀포레스트1/2/3</item>
+        <item>월요일이 사라졌다1/2/3</item>
+    </string-array>
+</resources>
