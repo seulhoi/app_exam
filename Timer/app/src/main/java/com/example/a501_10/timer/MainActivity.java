@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView_time;
     Button btn_start, btn_stop;
     int min,sec;
+    CookTimerAsyncTask timer;
 
 
     @Override
@@ -24,6 +25,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setComponents();
+    }
+
+    public String printMin(int min){
+        if(min < 10){
+            return "0"+Integer.toString(min);
+        }
+        return Integer.toString(min);
+    }
+
+    public String printSec(int sec){
+        if(sec < 10){
+            return "0"+Integer.toString(sec);
+        }
+        return Integer.toString(sec);
     }
 
     public void setComponents(){
@@ -42,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     sec = Integer.parseInt(editText_sec.getText().toString());
                 }
                 timer = new CookTimerAsyncTask();
-                timer.execute;
+                timer.execute();
             }
         });
 
@@ -58,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public class CookTimerAsyncTask extends AsyncTask<Void ,Void> {
+    public class CookTimerAsyncTask extends AsyncTask<Void ,Void, Void> {
         protected  void onPreExecute() {
             textView_time.setText(min+" : "+sec);
         }
