@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.a501_10.mymapview.MainActivity">
+
+
+    <!--지도를 표시해주는 MapFragment를 Layout에 추가함 -->
+    <fragment
+        android:id="@+id/mapView_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.google.android.gms.maps.MapFragment">
+
+    </fragment>
+
+</android.support.constraint.ConstraintLayout>

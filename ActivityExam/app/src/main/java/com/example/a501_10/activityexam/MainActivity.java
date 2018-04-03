@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                      movieActivity.class);
       }
         //startActivity: 실제 화면을 전환시켜줄 명령어
-      //  startActivity(intent);
+        startActivity(intent);
 
     }
 }

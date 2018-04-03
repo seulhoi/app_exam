@@ -16,7 +16,7 @@ import android.widget.VideoView;
  */
 
 public class movieActivity extends AppCompatActivity {
-    VideoView videoview;
+    VideoView videoView;
     RatingBar ratingbar;
     Button btn_back;
 
@@ -25,13 +25,14 @@ public class movieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
-        videoview = (VideoView)findViewById(R.id.videoview);
+
+        videoView = (VideoView)findViewById(R.id.videoView);
         String uriPath="android.resource://"+getPackageName() +"/"+R.raw.moon;
         Uri uri = Uri.parse(uriPath);
-        videoview.setVideoURI(uri);
+        videoView.setVideoURI(uri);
 
         final MediaController mediaController = new MediaController(this);
-        videoview.setMediaController(mediaController);
+        videoView.setMediaController(mediaController);
 
         ratingbar =(RatingBar)findViewById(R.id.ratingbar);
         MyListener myListener = new MyListener();

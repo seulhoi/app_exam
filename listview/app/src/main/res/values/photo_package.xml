@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="photo_package">
-        <item>블랙팬서1/2/3</item>
-        <item>궁합1/2/3</item>
-        <item>리틀포레스트1/2/3</item>
-        <item>월요일이 사라졌다1/2/3</item>
+        <item>poster_black/poster_little/poster_match</item>
+        <item>poster_match/poster_little/poster_black</item>
+        <item>poster_little/poster_little/poster_black</item>
+        <item>poster_mon/poster_little/poster_match</item>
     </string-array>
 </resources>

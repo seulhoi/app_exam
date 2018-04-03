@@ -1,10 +1,13 @@
 package com.example.a501_10.sdcardexample;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_find_music, btn_find_img;
     TextView textView_main;
     ArrayList<String> img_array, music_array;
+    ImageView imageView_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         btn_find_music = (Button)findViewById(R.id.btn_find_music);
         btn_find_img = (Button)findViewById(R.id.btn_find_img);
         textView_main = (TextView)findViewById(R.id.textView_main);
+        imageView_main = (ImageView)findViewById(R.id.imageView_main);
+
 
         btn_find_img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +42,21 @@ public class MainActivity extends AppCompatActivity {
                    String temp = textView_main.getText().toString();
                    textView_main.setText(temp + img_array.get(i) + "\n");
                 }
+
+
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize=2;
+
+                //경로로 부터 파일을 읽어옴(그냥 파일)
+                File img_file = new File(img_array.get(0));
+                //파일을 이미지 파일로 변환(이미지 파일)
+                Bitmap bitmap = BitmapFactory.decodeFile(img_file.getAbsolutePath(),options);
+
+                Bitmap bitmap_resize = bitmap.createScaledBitmap(bitmap, 40,20,true);
+
+                //이미지 뷰에 이미지 파일적용
+                imageView_main.setImageBitmap(bitmap_resize);
+
             }
         });
 
@@ -48,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
                     String temp = textView_main.getText().toString();
                     textView_main.setText(temp + img_array.get(i) + "\n");
                 }
+
+
             }
         });
 
