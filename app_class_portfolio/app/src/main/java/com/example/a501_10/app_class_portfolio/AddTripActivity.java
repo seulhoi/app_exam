@@ -156,7 +156,8 @@ public class AddTripActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_add_trip, menu);
         return true;
     }
-
+//    toolbar_item_goto_add_trip
+         //   toolbar_item_add_trip
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.toolbar_item_add_trip:

@@ -36,10 +36,13 @@
     </android.support.v7.widget.Toolbar>
 
     <ListView
+        android:id="@+id/listView_tripList"
         android:layout_width="0dp"
-        android:layout_height="453dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
