@@ -3,6 +3,7 @@
     package="com.example.a501_10.app_class_portfolio">
 
     <application
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,6 +26,8 @@
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".AddTripActivity"></activity>
         <activity android:name=".ListTripActivity"></activity>
+        <activity android:name=".InfoScheduleActivity"></activity>
+        <activity android:name=".AddScheduleActivity"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
