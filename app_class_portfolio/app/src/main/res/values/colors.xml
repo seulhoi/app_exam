@@ -4,4 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorSplashBackground">#FFFFFF</color>
+
+    <color name="colorSchedule1">#E3C4FF</color>
+    <color name="colorSchedule2">#FFD9FA</color>
+    <color name="colorSchedule3">#D9E5FF</color>
+    <color name="colorSchedule4">#D4F4FA</color>
+    <color name="colorSchedule5">#CEF279</color>
+    <color name="colorSchedule6">#FAED7D</color>
+    <color name="colorSchedule7">#D5D5D5</color>
+    <color name="colorSchedule8">#FFD8D8</color>
 </resources>

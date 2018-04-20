@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public class DefaultOption  {
-    public final static  String DERAULT_MAIN_PAGE_URL = "http://nbs1423.dothome.co.kr";
+    public final static
+    String DERAULT_MAIN_PAGE_URL = "http://nbs1423.dothome.co.kr/mobileweb/chungnam/index.html";
+    //"http://nbs1423.dothome.co.kr/mobileweb/chungnam/index.html";
 
 }
