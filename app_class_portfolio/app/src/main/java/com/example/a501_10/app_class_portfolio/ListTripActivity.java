@@ -66,7 +66,7 @@ public class ListTripActivity extends AppCompatActivity {
     private  void setToolbar(){
         toolbar_listTrip = (Toolbar)findViewById(R.id.toolbar_listTrip);
         toolbar_listTrip.setTitle("");
-        toolbar_listTrip.setNavigationIcon(R.mipmap.ic_chevron_left_black_24dp);
+        toolbar_listTrip.setNavigationIcon(R.mipmap.ic_arrow_back_white_24dp);
         setSupportActionBar(toolbar_listTrip);
     }
     public boolean onSupportNavigateUp(){

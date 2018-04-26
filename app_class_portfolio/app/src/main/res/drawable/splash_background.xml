@@ -3,6 +3,6 @@
      <item android:drawable="@color/colorSplashBackground"></item>
     <item
         android:gravity="center"
-        android:drawable="@mipmap/ic_launcher">
+        android:drawable="@drawable/loading3">
     </item>
 </layer-list>

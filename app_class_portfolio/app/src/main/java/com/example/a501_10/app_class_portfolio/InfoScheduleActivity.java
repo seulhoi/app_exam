@@ -111,7 +111,7 @@ import java.util.List;
     private void setToolbar(){
         toolbar_infoSchedule = (Toolbar)findViewById(R.id.toolbar_infoSchedule);
         toolbar_infoSchedule.setTitle("");
-        toolbar_infoSchedule.setNavigationIcon(R.mipmap.ic_chevron_left_black_24dp);
+        toolbar_infoSchedule.setNavigationIcon(R.mipmap.ic_arrow_back_white_24dp);
         setSupportActionBar(toolbar_infoSchedule);
     }
 

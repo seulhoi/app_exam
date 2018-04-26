@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/tool_item_goto_add_schedule"
-        android:icon="@mipmap/ic_add_black_24dp"
+        android:icon="@mipmap/ic_add_circle_outline_white_24dp"
         android:title="Item"
         app:showAsAction="always" />
 </menu>

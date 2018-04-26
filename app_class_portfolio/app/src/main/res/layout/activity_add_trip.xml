@@ -10,7 +10,7 @@
         android:id="@+id/toolbar_addTrip"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="@android:color/holo_orange_light"
+        android:background="@color/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,9 +30,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/myfont2"
-                android:textColor="@android:color/background_dark"
-                android:textSize="30sp"
-                android:text="여행 추가하기" />
+                android:text="여행 추가하기"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
@@ -83,14 +83,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="390dp" />
+        app:layout_constraintGuide_begin="383dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="473dp" />
+        app:layout_constraintGuide_begin="453dp" />
 
     <EditText
         android:id="@+id/editText_addTrip_startDay"
@@ -202,9 +202,10 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <TextView
         android:id="@+id/textView4"
@@ -244,41 +245,43 @@
 
     <ImageButton
         android:id="@+id/btn_addTrip_minus"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/border3"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@mipmap/ic_remove_black_24dp" />
+        app:layout_constraintVertical_bias="0.285"
+        app:srcCompat="@mipmap/ic_remove_white_24dp" />
 
     <ImageButton
         android:id="@+id/btn_addTrip_plus"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/border3"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.666"
-        app:srcCompat="@mipmap/ic_add_black_24dp" />
+        app:layout_constraintVertical_bias="0.285"
+        app:srcCompat="@mipmap/ic_add_white_24dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.43" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline8"

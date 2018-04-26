@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/toolbar_item_add_trip"
-        android:icon="@mipmap/ic_check_black_24dp"
+        android:icon="@mipmap/ic_event_available_white_24dp"
         android:title="Item"
         app:showAsAction="always" />
 </menu>

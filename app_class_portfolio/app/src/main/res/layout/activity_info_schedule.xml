@@ -9,7 +9,7 @@
         android:id="@+id/toolbar_infoSchedule"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_orange_light"
+        android:background="@color/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/myfont2"
                 android:text="일정보기"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/white"
                 android:textSize="30sp" />
         </LinearLayout>
 
@@ -139,13 +139,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_percent="0.052083332" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="71dp" />
+        app:layout_constraintGuide_percent="0.119929455" />
 
 </android.support.constraint.ConstraintLayout>

@@ -8,8 +8,8 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_addSche"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_orange_light"
+        android:layout_height="60dp"
+        android:background="@color/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/myfont2"
                 android:text="일정 추가"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/white"
                 android:textSize="30sp" />
         </LinearLayout>
 
@@ -40,7 +40,7 @@
     <ImageView
         android:id="@+id/imageView_addSche_img"
         android:layout_width="0dp"
-        android:layout_height="124dp"
+        android:layout_height="112dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -96,6 +96,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/gabia_font"
         android:text="문의문화재단지"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
@@ -109,17 +110,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_percent="0.041666668" />
 
     <TextView
         android:id="@+id/textView_addSche_visitTime"
-        android:layout_width="116dp"
-        android:layout_height="43dp"
+        android:layout_width="105dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/border"
+        android:fontFamily="@font/nanumbarungothic"
         android:text="방문시간"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -133,12 +135,13 @@
     <TextView
         android:id="@+id/textView11"
         android:layout_width="105dp"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/border"
+        android:fontFamily="@font/nanumbarungothic"
         android:text="진행시간"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -151,19 +154,20 @@
 
     <ImageButton
         android:id="@+id/btn_addSche_minus"
-        android:layout_width="48dp"
-        android:layout_height="44dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/border3"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.381"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
         app:layout_constraintTop_toTopOf="@+id/guideline12"
         app:layout_constraintVertical_bias="0.75"
-        app:srcCompat="@mipmap/ic_remove_black_24dp" />
+        app:srcCompat="@mipmap/ic_remove_white_24dp" />
 
     <EditText
         android:id="@+id/editText_addSche_inTime"
@@ -184,28 +188,30 @@
 
     <ImageButton
         android:id="@+id/btn_addSche_plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/border3"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
         app:layout_constraintTop_toTopOf="@+id/guideline12"
         app:layout_constraintVertical_bias="0.75"
-        app:srcCompat="@mipmap/ic_add_black_24dp" />
+        app:srcCompat="@mipmap/ic_add_white_24dp" />
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="101dp"
+        android:layout_width="105dp"
         android:layout_height="44dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/border"
+        android:fontFamily="@font/nanumbarungothic"
         android:text="예산"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -230,10 +236,10 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toTopOf="@+id/guideline13"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView_addSche_"
@@ -243,6 +249,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/nanumbarungothic"
         android:text="예산이 300,000원 남았습니다."
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toEndOf="parent"
@@ -269,13 +276,14 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="111dp"
+        android:layout_width="105dp"
         android:layout_height="44dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/border"
+        android:fontFamily="@font/nanumbarungothic"
         android:text="방문일자"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -291,7 +299,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="274dp" />
+        app:layout_constraintGuide_percent="0.51675487" />
 
     <EditText
         android:id="@+id/editText_addSche_visitDay"

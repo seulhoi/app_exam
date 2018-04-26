@@ -38,8 +38,8 @@ public class Util {
         editor.putString("PLACE_TITLE", title);
         editor.commit();
     }
-    public static int getPlaceTitle(Context context){
+    public static String getPlaceTitle(Context context){
         SharedPreferences pref = context.getSharedPreferences("place_title",0);
-        return pref.getInt("PLACE_TITLE",-1);
+        return pref.getString("PLACE_TITLE", "NO_DATA");
     }
 }

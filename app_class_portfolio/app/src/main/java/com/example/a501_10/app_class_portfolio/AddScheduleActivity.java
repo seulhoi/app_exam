@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -50,6 +51,7 @@ public class AddScheduleActivity extends AppCompatActivity {
     ArrayList<Schedule> arrayList_schedule;
     ArrayList<Trip> arrayList_trip;
     TextView textView_addSche_name;
+    ImageView imageView_addSche_img;
 
     int inTime = 30;
     int visit_hour, visit_min;
@@ -68,7 +70,6 @@ public class AddScheduleActivity extends AppCompatActivity {
     setData();
     setComponents();
 
-
     }
 
     private void setComponents(){
@@ -77,7 +78,28 @@ public class AddScheduleActivity extends AppCompatActivity {
         editText_addSche_money = (EditText)findViewById(R.id.editText_addSche_money);
         btn_addSche_plus = (ImageButton)findViewById(R.id.btn_addSche_plus);
         btn_addSche_minus = (ImageButton)findViewById(R.id.btn_addSche_minus);
+
+
+//        여행지명 가져오기
         textView_addSche_name = (TextView)findViewById(R.id.textView_addSche_name);
+        textView_addSche_name.setText(Util.getPlaceTitle(AddScheduleActivity.this));
+
+// **여행사진 가져오기
+        imageView_addSche_img = (ImageView)findViewById(R.id.imageView_addSche_img);
+//        관광지 정보가져오기
+        for(int i =0; i< arrayList_place.size(); i++){
+            if (arrayList_place.get(i).getName().equals(Util.getPlaceTitle(
+                    AddScheduleActivity.this))){
+//                이미지이름으로 파일찾기
+                    String name = arrayList_place.get(i).getImg_name();
+                    int img_id = getResources().getIdentifier(
+                            "@drawable/" + name,
+                            "drawble",
+                            this.getPackageName());
+                    //이미지를 이미지뷰에 전달 **
+                    imageView_addSche_img.setImageResource(img_id);
+            }
+        }
 
         editText_addSche_visitDay = (EditText)findViewById(R.id.editText_addSche_visitDay);
         editText_addSche_visitDay.setInputType(InputType.TYPE_NULL);
@@ -202,7 +224,7 @@ public class AddScheduleActivity extends AppCompatActivity {
     private  void setToolbar(){
         toolbar_addSche = (Toolbar)findViewById(R.id.toolbar_addSche);
         toolbar_addSche.setTitle("");
-        toolbar_addSche.setNavigationIcon(R.mipmap.ic_chevron_left_black_24dp);
+        toolbar_addSche.setNavigationIcon(R.mipmap.ic_arrow_back_white_24dp);
         setSupportActionBar(toolbar_addSche);
     }
 

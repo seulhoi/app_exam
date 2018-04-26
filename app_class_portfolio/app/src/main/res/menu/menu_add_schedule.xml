@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/toolbar_item_add_schedule"
-        android:icon="@mipmap/ic_check_black_24dp"
+        android:icon="@mipmap/ic_check_white_24dp"
         android:title="Item"
         app:showAsAction="always" />
 </menu>

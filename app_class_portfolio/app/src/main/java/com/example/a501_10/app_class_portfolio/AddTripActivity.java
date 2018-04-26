@@ -143,7 +143,7 @@ public class AddTripActivity extends AppCompatActivity {
     private void setToolber() {
         toolbar_addTrip = (Toolbar) findViewById(R.id.toolbar_addTrip);
         toolbar_addTrip.setTitle("");
-        toolbar_addTrip.setNavigationIcon(R.mipmap.ic_chevron_left_black_24dp);
+        toolbar_addTrip.setNavigationIcon(R.mipmap.ic_arrow_back_white_24dp);
         setSupportActionBar(toolbar_addTrip);
     }
 

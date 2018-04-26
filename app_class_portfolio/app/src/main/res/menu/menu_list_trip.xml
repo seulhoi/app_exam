@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/toolbar_item_goto_add_trip"
-        android:icon="@mipmap/ic_add_black_24dp"
+        android:icon="@mipmap/ic_playlist_add_white_24dp"
         android:title="Item"
         app:showAsAction="always" />
 </menu>

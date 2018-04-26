@@ -43,14 +43,17 @@ public class SplashActivity extends AppCompatActivity {
         arrayList_schedule = ScheduleList.getInstance();
         arrayList_trip = TripList.getInstance();
 
+        setPlaceData();
+
         PortfolioQuery.setInitAllData(daoSession, arrayList_place,
                                     arrayList_schedule, arrayList_trip);
 
 
 //        try{
-//            Thread.sleep(3000);
-//            Toast.makeText(this,"3초가 지났습니다.", Toast.LENGTH_LONG).show();
+//            Thread.sleep(5000);
+//            Toast.makeText(this,"5초가 지났습니다.", Toast.LENGTH_LONG).show();
 //        }catch(Exception e){;}
+
 
         Intent intent =  new Intent(SplashActivity.this,
                 MainActivity.class);

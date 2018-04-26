@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorSplashBackground">#FFFFFF</color>
+    <color name="colorSplashBackground">#FFAED582</color>
 
     <color name="colorSchedule1">#E3C4FF</color>
     <color name="colorSchedule2">#FFD9FA</color>
@@ -13,4 +13,6 @@
     <color name="colorSchedule6">#FAED7D</color>
     <color name="colorSchedule7">#D5D5D5</color>
     <color name="colorSchedule8">#FFD8D8</color>
+    <color name="toolbar">#536e79</color>
+    <color name="list">#aed582</color>
 </resources>
