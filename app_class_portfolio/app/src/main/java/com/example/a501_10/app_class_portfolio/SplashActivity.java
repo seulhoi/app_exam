@@ -49,6 +49,12 @@ public class SplashActivity extends AppCompatActivity {
                                     arrayList_schedule, arrayList_trip);
 
 
+
+        PortfolioQuery.logTrip("myLogs", arrayList_trip);
+        PortfolioQuery.logPlace("myLogs", arrayList_place);
+        PortfolioQuery.logSchedule("myLogs", arrayList_schedule);
+
+
 //        try{
 //            Thread.sleep(5000);
 //            Toast.makeText(this,"5초가 지났습니다.", Toast.LENGTH_LONG).show();

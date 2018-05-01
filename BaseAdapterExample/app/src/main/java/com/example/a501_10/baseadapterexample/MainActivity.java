@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
                 "픽셀","구글"));
 
         ListView listView = (ListView)findViewById(R.id.listview_main);
-        listView.setAdapter(new MyItemAdapter(arrayList, this,R.layout.listview_item));
+
+        listView.setAdapter(new MyItemAdapter(arrayList,
+                this,R.layout.listview_item));
     }
 
     //항목에 표현할 자료들을 저장하는 객체의 클래스스

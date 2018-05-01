@@ -13,18 +13,16 @@ import org.greenrobot.greendao.database.Database;
 
 public class AppController extends Application {
     private DaoSession daoSession;
-
     @Override
     public void onCreate() {
         super.onCreate();
 
-        DaoMaster.DevOpenHelper helper
-                = new DaoMaster.DevOpenHelper(this,"my_portfolio");
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "myportfolio");
         Database db = helper.getWritableDb();
-             daoSession =  new DaoMaster(db).newSession();
+        daoSession = new DaoMaster(db).newSession();
     }
 
-    public DaoSession getDaoSession(){
+    public DaoSession getDaoSession() {
         return daoSession;
     }
 }

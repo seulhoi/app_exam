@@ -1,16 +1,21 @@
 package com.example.a501_10.app_class_portfolio.db;
 
-        import android.util.Log;
-        import org.greenrobot.greendao.query.DeleteQuery;
-        import java.util.ArrayList;
-        import java.util.Date;
-        import java.util.List;
-        import com.example.a501_10.app_class_portfolio.util.Util;
+import android.util.Log;
+
+import org.greenrobot.greendao.query.DeleteQuery;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.example.a501_10.app_class_portfolio.datalist.PlaceList;
+import com.example.a501_10.app_class_portfolio.datalist.ScheduleList;
+import com.example.a501_10.app_class_portfolio.datalist.TripList;
+import com.example.a501_10.app_class_portfolio.util.Util;
 
 /**
  * Created by Raejin on 2018-04-09.
  */
-
 public class PortfolioQuery {
     public static void logTrip(String tag, ArrayList<Trip> tripList) {
         for (int i = 0; i < tripList.size(); i++) {
@@ -26,6 +31,7 @@ public class PortfolioQuery {
             Log.d(tag, msg);
         }
     }
+
     public static void logSchedule(String tag, ArrayList<Schedule> schedulesList) {
         for (int i = 0; i < schedulesList.size(); i++) {
             String msg = "schedule - " +
@@ -41,6 +47,7 @@ public class PortfolioQuery {
             Log.d(tag, msg);
         }
     }
+
     public static void logPlace(String tag, ArrayList<Place> placeList) {
         for (int i = 0; i < placeList.size(); i++) {
             String msg = "place - " +
@@ -60,12 +67,12 @@ public class PortfolioQuery {
         Trip temp_trip = daoSession.getTripDao().queryBuilder()
                 .where(TripDao.Properties.Id.eq(id)).unique();
 
-        if(temp_trip != null) {
-            if(title != null) temp_trip.setTitle(title);
-            if(start_date != null) temp_trip.setStart_day(start_date);
-            if(end_date != null) temp_trip.setEnd_day(end_date);
-            if(number_of_member != -1) temp_trip.setNumber_of_member(number_of_member);
-            if(total_money != -1) temp_trip.setTotal_money(total_money);
+        if (temp_trip != null) {
+            if (title != null) temp_trip.setTitle(title);
+            if (start_date != null) temp_trip.setStart_day(start_date);
+            if (end_date != null) temp_trip.setEnd_day(end_date);
+            if (number_of_member != -1) temp_trip.setNumber_of_member(number_of_member);
+            if (total_money != -1) temp_trip.setTotal_money(total_money);
             temp_trip.setUpdated_at(Util.getNowDateTime());
 
             daoSession.getTripDao().update(temp_trip);
@@ -74,6 +81,7 @@ public class PortfolioQuery {
             return -1;
         }
     }
+
     public static int updateSchedule(DaoSession daoSession, int id,
                                      String place_name, Date elapsed_time,
                                      long spending_money, Date visit_time,
@@ -81,13 +89,13 @@ public class PortfolioQuery {
         Schedule temp_schedule = daoSession.getScheduleDao().queryBuilder()
                 .where(ScheduleDao.Properties.Id.eq(id)).unique();
 
-        if(temp_schedule != null) {
-            if(place_name != null) temp_schedule.setPlace_name(place_name);
-            if(elapsed_time != null) temp_schedule.setElapse_time(elapsed_time);
-            if(spending_money != -1) temp_schedule.setSpend_money(spending_money);
-            if(visit_time != null) temp_schedule.setVisit_time(visit_time);
-            if(trip_id != -1) temp_schedule.setTrip_id(trip_id);
-            if(place_id != -1) temp_schedule.setPlace_id(place_id);
+        if (temp_schedule != null) {
+            if (place_name != null) temp_schedule.setPlace_name(place_name);
+            if (elapsed_time != null) temp_schedule.setElapse_time(elapsed_time);
+            if (spending_money != -1) temp_schedule.setSpend_money(spending_money);
+            if (visit_time != null) temp_schedule.setVisit_time(visit_time);
+            if (trip_id != -1) temp_schedule.setTrip_id(trip_id);
+            if (place_id != -1) temp_schedule.setPlace_id(place_id);
             temp_schedule.setUpdated_at(Util.getNowDateTime());
 
             daoSession.getScheduleDao().update(temp_schedule);
@@ -104,10 +112,10 @@ public class PortfolioQuery {
         Place temp_place = daoSession.getPlaceDao().queryBuilder()
                 .where(PlaceDao.Properties.Id.eq(id)).unique();
 
-        if(temp_place != null) {
-            if(name != null) temp_place.setName(name);
-            if(desc != null) temp_place.setDesc(desc);
-            if(img_name != null) temp_place.setImg_name(img_name);
+        if (temp_place != null) {
+            if (name != null) temp_place.setName(name);
+            if (desc != null) temp_place.setDesc(desc);
+            if (img_name != null) temp_place.setImg_name(img_name);
             temp_place.setUpdated_at(Util.getNowDateTime());
             daoSession.getPlaceDao().update(temp_place);
 
@@ -127,7 +135,7 @@ public class PortfolioQuery {
         List<Schedule> temp_schedule_list = daoSession.getScheduleDao().queryBuilder().list();
         List<Trip> temp_trip_list = daoSession.getTripDao().queryBuilder().list();
 
-        if(placeList.size() == 0 && schedulesList.size() == 0 && tripList.size() == 0) {
+        if (placeList.size() == 0 && schedulesList.size() == 0 && tripList.size() == 0) {
             for (int i = 0; i < temp_place_list.size(); i++) {
                 placeList.add(temp_place_list.get(i));
             }
@@ -141,6 +149,7 @@ public class PortfolioQuery {
             }
         }
     }
+
     public static void insertSchedule(DaoSession daoSession,
                                       ArrayList<Schedule> schedulesList,
                                       String place_name, Date elapsed_time,
@@ -192,6 +201,58 @@ public class PortfolioQuery {
 
         placeList.add(temp_place);
         daoSession.insert(temp_place);
+    }
+
+    public static void deletePlaceDataById(DaoSession daoSession,
+                                           long id) {
+        ArrayList<Place> placeList = PlaceList.getInstance();
+        final DeleteQuery<Place> deletePlaceQuery
+                = daoSession.queryBuilder(Place.class)
+                .where(PlaceDao.Properties.Id.eq(id))
+                .buildDelete();
+        deletePlaceQuery.executeDeleteWithoutDetachingEntities();
+        daoSession.clear();
+
+        for (int i = 0; i < placeList.size(); i++) {
+            if (placeList.get(i).getId().equals(id)) {
+                placeList.remove(i);
+                break;
+            }
+        }
+    }
+
+    public static void deleteSchduleById(DaoSession daoSession,
+                                         long id) {
+        ArrayList<Schedule> scheduleList = ScheduleList.getInstance();
+        final DeleteQuery<Schedule> deleteScheduleQuery
+                = daoSession.queryBuilder(Schedule.class)
+                .where(ScheduleDao.Properties.Id.eq(id))
+                .buildDelete();
+        deleteScheduleQuery.executeDeleteWithoutDetachingEntities();
+        daoSession.clear();
+
+        for (int i = 0; i < scheduleList.size(); i++) {
+            if (scheduleList.get(i).getId().equals(id)) {
+                scheduleList.remove(i);
+                break;
+            }
+        }
+    }
+
+    public static void deleteTripDataById(DaoSession daoSession, long id) {
+        ArrayList<Trip> tripList = TripList.getInstance();
+        final DeleteQuery<Trip> deleteTripQuery = daoSession.queryBuilder(Trip.class)
+                .where(TripDao.Properties.Id.eq(id))
+                .buildDelete();
+        deleteTripQuery.executeDeleteWithoutDetachingEntities();
+        daoSession.clear();
+
+        for (int i = 0; i < tripList.size(); i++) {
+            if (tripList.get(i).getId().equals(id)) {
+                tripList.remove(i);
+                break;
+            }
+        }
     }
 
     public static void deletePlaceData(DaoSession daoSession) {

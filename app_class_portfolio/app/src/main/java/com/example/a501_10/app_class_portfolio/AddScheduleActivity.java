@@ -8,7 +8,9 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +34,7 @@ import com.example.a501_10.app_class_portfolio.db.Trip;
 import com.example.a501_10.app_class_portfolio.util.Util;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -52,6 +55,7 @@ public class AddScheduleActivity extends AppCompatActivity {
     ArrayList<Trip> arrayList_trip;
     TextView textView_addSche_name;
     ImageView imageView_addSche_img;
+    TextView textView_addSche_money;
 
     int inTime = 30;
     int visit_hour, visit_min;
@@ -60,6 +64,7 @@ public class AddScheduleActivity extends AppCompatActivity {
 
     int visit_year,visit_month,visit_day;
     int elapse_hour,elapse_min,elapse_year, elapse_month,elapse_day;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -130,7 +135,10 @@ public class AddScheduleActivity extends AppCompatActivity {
             }
         }
 
+
     }
+
+
 
     private Date setElapseDate(int inTime, int aHour, int aMin){
         int total = aMin + inTime;
@@ -155,9 +163,30 @@ public class AddScheduleActivity extends AppCompatActivity {
                 case R.id.editText_addSche_visitDay:
                     //데이트피커 리스너 생성
                     DatePickerListener datePickerListener = new DatePickerListener();
+//
+                    Calendar min = Calendar.getInstance();
+                    Calendar max = Calendar.getInstance();
+//
+                    Trip trip_info = arrayList_trip.get(trip_index);
+//
+//                    //여행일정을 가져옴
+                    min.set(Calendar.YEAR, trip_info.getStart_day().getYear());
+                    min.set(Calendar.MONTH, trip_info.getStart_day().getMonth()-1);
+                    min.set(Calendar.DAY_OF_MONTH, trip_info.getStart_day().getDate());
 
-                    new DatePickerDialog(AddScheduleActivity.this,
-                            datePickerListener, 2018, 4,19).show();
+                    max.set(Calendar.YEAR, trip_info.getEnd_day().getYear());
+                    max.set(Calendar.MONTH, trip_info.getEnd_day().getMonth()-1);
+                    max.set(Calendar.DAY_OF_MONTH, trip_info.getEnd_day().getDate());
+
+                    DatePickerDialog datePickerDialog =
+                           new DatePickerDialog(AddScheduleActivity.this,
+                            datePickerListener,
+                            2018,4,26);
+
+                            datePickerDialog.getDatePicker().setMinDate(min.getTime().getTime());
+                            datePickerDialog.getDatePicker().setMaxDate(max.getTime().getTime());
+                            datePickerDialog.show();
+
                     break;
 
                 case R.id.editText_addSche_visitTime :
@@ -213,6 +242,7 @@ public class AddScheduleActivity extends AppCompatActivity {
         Intent intent = getIntent();
         trip_index = intent.getIntExtra("SELECTED_TRIP",-1);
         place_index = Util.getPlaceIndex(AddScheduleActivity.this);
+        arrayList_trip = TripList.getInstance();
 
         daoSession = ((AppController)getApplication()).getDaoSession();
         arrayList_schedule = ScheduleList.getInstance();
@@ -245,19 +275,12 @@ public class AddScheduleActivity extends AppCompatActivity {
 
                 PortfolioQuery.insertSchedule(daoSession, arrayList_schedule,
                         textView_addSche_name.getText().toString(),
-                        new Date (elapse_year, elapse_month, elapse_day, elapse_hour,elapse_min),
+                        new Date(elapse_year, elapse_month, elapse_day, elapse_hour, elapse_min),
                         Long.parseLong(editText_addSche_money.getText().toString()),
-                        new Date(visit_year,visit_month,visit_day,visit_hour,visit_min),
-                        trip_index,place_index);
+                        new Date(visit_year, visit_month, visit_day, visit_hour, visit_min),
+                        arrayList_trip.get(trip_index).getId(),
+                        arrayList_place.get(place_index).getId());
 
-                Date VisitDate = new Date();
-                VisitDate.setHours(visit_hour);
-                VisitDate.setMinutes(visit_min);
-
-                PortfolioQuery.insertSchedule(daoSession, arrayList_schedule,
-                        textView_addSche_name.getText().toString(), ElapseDate,
-                        Long.parseLong(editText_addSche_money.getText().toString()),
-                        VisitDate, trip_index, place_index);
 
                 PortfolioQuery.logSchedule("MySchedule", arrayList_schedule);
 
